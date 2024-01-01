@@ -1,0 +1,44 @@
+Fullstack Web Developer Expertise Test: Dashboard
+
+Internal web tool “Events7” (dashboard) is designed for the Analytics team to define client events we want to track. For example, we want to track button clicks in our mobile app. The Analytics team would go on the dashboard and define the event. The event definition would contain the following fields: id (must be unique), name, description, type (crosspromo, liveops, app, ads) and priority (from 0-10). All the fields are mandatory. The dashboard needs to provide the functionalities required to create, view, update and delete events.
+Assignment
+Your assignment is to design and implement a full stack application “Events7” and prepare unit and integration tests that will validate your solution.
+
+Event example:
+Click event:
+	id=20
+	name=click-event
+	description=when the user clicks the button the event should be triggered
+	type=app
+	priority=0
+
+Type validation:
+The analytics team is spread out in our offices throughout the world and only some of them have the permission to create ads type events. Since designing a role based access system is out of the scope of this assignment, we will simplify this by using a public API to determine whether the ads type is available for selection. To further simplify, we will assume there is only one office per country and everyone in the office should have the same level of access. To determine the office location we will use IP Geolocation, for which you can use a free GeoIP service, such as ip-api.
+
+The (external) API specs:
+
+HTTP Method: GET
+URL : 				https://us-central1-o7tools.cloudfunctions.net/fun7-ad-partner
+Query params expected:
+countryCode: The country code of the user
+User name (for basic auth): fun7user
+Password (for basic auth): fun7pass
+HTTP Response body:
+200 OK
+If ads type is enabled:
+Response body: {“ads”: “sure, why not!”}
+If ads type is disabled:
+Response body: {“ads”: “you shall not pass!”}
+400 BAD REQUEST - missing mandatory parameters
+401 UNAUTHORIZED - invalid credentials
+500 SERVER ERROR - server is temporarily not available
+
+
+
+Technical requirements:
+Your solution should be written using Vue3 (preferred), React or Angular (front-end) and NestJS (backend).
+Feel free to use any external libraries or components of your choice
+Please send us either a zip archive or a link to project on the github/bitbucket (preferred).
+Make sure that your solution is production ready so apply all the techniques that you would normally do when writing code in a real life situation.
+Please provide a readme file with the description on how to build your application and how to run it.
+If something is not clear feel free to make some assumptions. In that case make sure to put it in the readme file. It should contain all the assumptions you made and all the extra information or explanations that you think might be useful for anybody reading your solution.
