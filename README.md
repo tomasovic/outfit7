@@ -75,7 +75,6 @@ The text of this challenge can be found in the file `challenge.txt`.
     - `seed:users:test` - creates users in the test database
     - `seed:events` - creates events in the dev database
     - `seed:events:test` - creates events in the test database
-- The seed makes 5 users, with 5 major city coordinates, and every users has 10 farms within the radius of 20km
 - User account info (password is qwe):
     - admin@outfit.com - this is admin password by default
     - the rest of the users are randomly created by the script
